@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INFINITY · 技术边界</title>
+    <!-- 预加载字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <div class="scanline-overlay"></div>
+    <div class="site-wrapper">
+        <header class="fade-up">
+            <div class="logo">void<span>·labs</span></div>
+            <nav>
+                <a href="#about">关于</a>
+                <a href="#stack">技术栈</a>
+                <a href="#projects">项目</a>
+                <a href="#journey">历程</a>
+                <a href="#awards">荣誉</a>
+                <a href="#contact">联系</a>
+                <a href="#">博客</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content fade-up fade-up-delay-1">
+                <div class="subtitle">全栈 · 分布式 · 开源构建者</div>
+                <h1>
+                    构建<br />
+                    <span class="highlight">数字边界</span>
+                </h1>
+                <p>
+                    全栈开发者，深耕分布式系统、高性能计算与高质量用户体验。
+                    擅长拆解复杂业务，设计兼顾性能、可维护性与可扩展性的软件架构。
+                    游走在内核底层与前端交互之间，把理论算法落地成真正可用的产品，持续用代码探索技术可能性的极限。
+                </p>
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#projects">浏览项目 ↓</a>
+                    <a class="btn btn-ghost" href="#contact">取得联系</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="8">0</span><span class="stat-number suffix">+</span>
+                        <span class="stat-label">年工程经验</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="24">0</span>
+                        <span class="stat-label">开源项目</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2100">0</span>
+                        <span class="stat-label">GitHub ⭐</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual fade-up fade-up-delay-3">
+                <div class="code-window">
+                    <div class="dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div id="type‑output"></div>
+                    <span class="cursor-blink"></span>
+                </div>
+            </div>
+        </section>
+
+        <blockquote class="quote‑block fade‑up fade‑up‑delay‑4">
+            “优秀的系统不是堆砌无限的功能，而是在复杂性与简洁之间找到精妙平衡点。底层追求极致性能，上层追求直觉友好的交互。”
+            <cite>— void·labs 工程理念</cite>
+        </blockquote>
+
+        <!-- ========== ABOUT ME ========== -->
+        <section id="about" class="reveal">
+            <div class="section-header">
+                <span class="tag">· 个人简介</span>
+                <h2>关于我</h2>
+                <div class="line"></div>
+            </div>
+            <div class="section-desc">我既是底层系统的实现者，也是产品体验的打磨者。不局限单一技术方向，关注软件完整生命周期：从设计、编码、测试、部署到维护与社区运营。</div>
+            <div class="about-wrapper">
+                <div class="about-card">
+                    <h3>我是谁</h3>
+                    <p>一名专注分布式领域的全栈工程师，拥有大厂核心业务实战经历，现在作为独立技术顾问，同时担任多个开源项目核心维护者。</p>
+                    <p>我信奉工程现实主义：技术服务业务，拒绝炫技式过度设计。写的代码不仅要跑通，更要可读、可调试、方便后续迭代，同时重视文档、可观测性与异常边界处理。</p>
+                    <p>业余投入开源社区，撰写技术博客，参与技术分享，乐于把踩过的坑、沉淀的方案对外输出。</p>
+                    <ul class="highlights-list">
+                        <li>擅长复杂业务拆解，输出可落地架构方案，兼顾成本与性能</li>
+                        <li>重视可观测性体系：日志、指标、链路追踪融入系统原生设计</li>
+                        <li>兼顾底层性能优化与上层产品交互体验，打通前后端完整链路</li>
+                        <li>具备团队协作、技术评审、技术赋能与项目推动经验</li>
+                    </ul>
+                </div>
+                <div class="about-card">
+                    <h3>兴趣方向</h3>
+                    <p>🔹 分布式一致性算法、时序数据库内核设计</p>
+                    <p>🔹 CRDT 实时协同、P2P网络、离线优先应用</p>
+                    <p>🔹 Rust系统编程、零成本抽象、内存安全高性能服务</p>
+                    <p>🔹 WebGL / Three.js大规模数据可视化渲染</p>
+                    <p>🔹 云原生架构、容器编排、DevOps工程效能</p>
+                    <p>🔹 前端工程化、组件库设计、大型SPA性能调优</p>
+                    <br>
+                    <p>如果你有架构咨询、开源合作、项目外包、技术分享邀请，欢迎与我取得联系。</p>
+                </div>
+            </div>
+
+            <h3 class="sub‑section‑title">能力拆解</h3>
+            <div class="skill‑grid">
+                <div class="skill‑block">
+                    <h4>🗜️底层 & 后端</h4>
+                    <ul>
+                        <li>分布式协议Raft/Paxos理解与实践</li>
+                        <li>高性能存储引擎、时序数据处理</li>
+                        <li>微服务拆分、gRPC/消息队列架构</li>
+                        <li>性能剖析、内存泄漏、CPU瓶颈调优</li>
+                    </ul>
+                </div>
+                <div class="skill‑block">
+                    <h4>🎨前端 & 交互</h4>
+                    <ul>
+                        <li>React大型应用架构、状态管理</li>
+                        <li>组件库设计、主题系统、Tree‑Shaking</li>
+                        <li>WebGL大规模拓扑、图表可视化</li>
+                        <li>协同编辑、Yjs/CRDT冲突处理</li>
+                    </ul>
+                </div>
+                <div class="skill‑block">
+                    <h4>☁️云原生 & 工程</h4>
+                    <ul>
+                        <li>K8s资源编排、Helm部署方案</li>
+                        <li>Docker镜像优化、CI/CD流水线</li>
+                        <li>Prometheus监控告警体系搭建</li>
+                        <li>压测、故障演练、SLA稳定性建设</li>
+                    </ul>
+                </div>
+                <div class="skill‑block">
+                    <h4>🤝软技能</h4>
+                    <ul>
+                        <li>架构文档撰写，技术方案评审</li>
+                        <li>开源社区维护，Issue & PR管理</li>
+                        <li>跨团队沟通，需求拆解与风险评估</li>
+                        <li>技术沉淀、博客与技术分享输出</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TECH STACK ========== -->
+        <section id="stack" class="reveal">
+            <div class="section-header">
+                <span class="tag">· 核心技术</span>
+                <h2>技术栈</h2>
+                <div class="line"></div>
+            </div>
+            <div class="section-desc">分为核心精通栈与辅助工具栈，覆盖系统底层、后端服务、前端交互、存储数据库、云原生运维全链路。</div>
+            <h3 class="sub‑section‑title">核心精通</h3>
+            <div class="tech-grid">
+                <div class="tech-card"><span class="icon">🦀</span><div class="name">Rust</div><div class="level">系统编程 / 高性能内核</div></div>
+                <div class="tech-card"><span class="icon">🐹</span><div class="name">Go</div><div class="level">后端服务 / 微服务</div></div>
+                <div class="tech-card"><span class="icon">⚛️</span><div class="name">React</div><div class="level">前端大型应用架构</div></div>
+                <div class="tech-card"><span class="icon">🟦</span><div class="name">TypeScript</div><div class="level">类型化前端工程</div></div>
+                <div class="tech-card"><span class="icon">🧊</span><div class="name">Three.js</div><div class="level">WebGL3D & 大规模可视化</div></div>
+                <div class="tech-card"><span class="icon">📜</span><div class="name">Yjs / CRDT</div><div class="level">多人实时协同编辑</div></div>
+                <div class="tech-card"><span class="icon">☁️</span><div class="name">Kubernetes</div><div class="level">云原生编排运维</div></div>
+                <div class="tech-card"><span class="icon">🗄️</span><div class="name">PostgreSQL</div><div class="level">关系数据库深度调优</div></div>
+            </div>
+            <h3 class="sub‑section‑title">工具 & 辅助栈</h3>
+            <div class="tech-grid">
+                <div class="tech-card"><span class="icon">📡</span><div class="name">gRPC</div><div class="level">微服务通信协议</div></div>
+                <div class="tech-card"><span class="icon">📦</span><div class="name">Docker</div><div class="level">容器化交付</div></div>
+                <div class="tech-card"><span class="icon">🔁</span><div class="name">Redis</div><div class="level">缓存、消息队列</div></div>
+                <div class="tech-card"><span class="icon">🛠️</span><div class="name">Prometheus</div><div class="level">监控告警与可观测性</div></div>
+                <div class="tech-card"><span class="icon">🔐</span><div class="name">Nginx</div><div class="level">反向代理与网关</div></div>
+                <div class="tech-card"><span class="icon">🧪</span><div class="name">Git</div><div class="level">版本控制与协作流程</div></div>
+                <div class="tech-card"><span class="icon">📝</span><div class="name">Storybook</div><div class="level">组件开发文档</div></div>
+                <div class="tech-card"><span class="icon">⚙️</span><div class="name">Helm</div><div class="level">K8s应用打包部署</div></div>
+            </div>
+        </section>
+
+        <!-- ========== PROJECTS ========== -->
+        <section id="projects" class="reveal">
+            <div class="section-header">
+                <span class="tag">· 精选作品</span>
+                <h2>项目</h2>
+                <div class="line"></div>
+            </div>
+            <div class="section-desc">个人主导或深度参与的开源项目，包含数据库内核、前端组件库、实时协作、监控工具、可视化引擎。每个项目都经过真实场景打磨。</div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project‑header‑row">
+                        <span class="project-icon">🌀</span>
+                        <span class="badge‑status badge‑active">进行中 · ⭐820</span>
+                    </div>
+                    <h3>OrbitDB · 分布式时序引擎</h3>
+                    <div class="project-meta">开源内核 · 2024‑至今</div>
+                    <p>基于 Raft 共识的高性能时序数据库，面向监控、IoT物联网指标场景，支持集群分片与多租户隔离。</p>
+                    <ul class="project‑features">
+                        <li>单集群吞吐可达120w+指标点每秒</li>
+                        <li>自动降采样、过期数据TTL清理</li>
+                        <li>高可用集群，Raft保证数据一致性</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Rust</span><span>Raft</span><span>WASM</span><span>时序数据库</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">文档 →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project‑header‑row">
+                        <span class="project-icon">🌌</span>
+                        <span class="badge‑status badge‑stable">稳定 · ⭐640</span>
+                    </div>
+                    <h3>Nebula UI · 数据密集组件库</h3>
+                    <div class="project-meta">开源组件库 · 2023‑至今</div>
+                    <p>面向运维、数据分析类产品的React组件库，兼顾性能与完整业务组件能力。</p>
+                    <ul class="project‑features">
+                        <li>40+业务组件，虚拟列表、拓扑、动态表单</li>
+                        <li>Tree‑Shaking优化，gzip体积＜18KB</li>
+                        <li>完整暗色主题、Storybook示例、TypeScript类型</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>React</span><span>TypeScript</span><span>Storybook</span><span>数据可视化</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">Playground →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project‑header‑row">
+                        <span class="project-icon">🔮</span>
+                        <span class="badge‑status badge‑stable">稳定 · ⭐310</span>
+                    </div>
+                    <h3>Kaleidoscope · 实时协作平台</h3>
+                    <div class="project-meta">协作编辑器 · 2022‑2024</div>
+                    <p>基于CRDT的多人协作文档系统，支持离线编辑，冲突自动合并，已经落地企业内部团队。</p>
+                    <ul class="project‑features">
+                        <li>Yjs CRDT冲突合并，离线编辑后同步</li>
+                        <li>光标位置同步、操作回放审计日志</li>
+                        <li>富文本、表格、图片嵌入混合文档</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>CRDT</span><span>WebSocket</span><span>Yjs</span><span>协同编辑</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">Demo →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project‑header‑row">
+                        <span class="project-icon">📡</span>
+                        <span class="badge‑status badge‑stable">稳定 · ⭐140</span>
+                    </div>
+                    <h3>Metriq · 轻量监控代理</h3>
+                    <div class="project-meta">工具开源 · 2024</div>
+                    <p>零依赖二进制指标采集转发代理，适合边缘设备、资源受限节点部署。</p>
+                    <ul class="project‑features">
+                        <li>单二进制，无需运行时依赖</li>
+                        <li>多协议指标采集，转发Prometheus</li>
+                        <li>极低CPU内存占用，适合边缘集群</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Go</span><span>Prometheus</span><span>边缘采集</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">使用文档 →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project‑header‑row">
+                        <span class="project-icon">🧩</span>
+                        <span class="badge‑status badge‑active">迭代中 · ⭐185</span>
+                    </div>
+                    <h3>Graph‑Topo · 拓扑可视化引擎</h3>
+                    <div class="project-meta">可视化工具 · 2023</div>
+                    <p>基于Three.js大规模关系拓扑渲染库，面向网络拓扑、调用链路图谱场景。</p>
+                    <ul class="project‑features">
+                        <li>支持上万节点力导向布局渲染</li>
+                        <li>节点分组、筛选、缩放交互</li>
+                        <li>WebGPU兼容备选渲染路径</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Three.js</span><span>WebGL</span><span>TypeScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">在线示例 →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project‑header‑row">
+                        <span class="project-icon">⚙️</span>
+                        <span class="badge‑status badge‑archive">归档维护 · ⭐95</span>
+                    </div>
+                    <h3>DevBox · 本地开发环境工具集</h3>
+                    <div class="project-meta">效率工具 · 2022</div>
+                    <p>一键拉起多微服务本地开发栈，简化本地调试复杂服务集群。</p>
+                    <ul class="project‑features">
+                        <li>封装docker‑compose模板管理</li>
+                        <li>服务健康检查，端口统一管理</li>
+                        <li>快速重置开发数据库环境</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Docker</span><span>Shell</span><span>开发效率</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">Readme →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== TIMELINE ========== -->
+        <section id="journey" class="reveal">
+            <div class="section-header">
+                <span class="tag">· 成长轨迹</span>
+                <h2>历程</h2>
+                <div class="line"></div>
+            </div>
+            <div class="section-desc">学习、实习、大厂工作到独立顾问的完整职业路径，记录每一段关键经历与产出成果。</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">2026 · 现在 <span class="badge‑status badge‑active">当前</span></div>
+                    <h4>独立技术顾问 · 开源核心维护者</h4>
+                    <p>面向初创企业提供分布式系统架构咨询服务，同时全职维护OrbitDB、Nebula UI两大开源项目。</p>
+                    <ul>
+                        <li>为三家创业公司输出架构评审、技术选型、性能调优方案</li>
+                        <li>管理开源社区，60+外部贡献者，版本迭代规划与Issue治理</li>
+                        <li>撰写深度技术博客，组织线上技术分享，沉淀行业实践文档</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">2023 – 2025</div>
+                    <h4>高级软件工程师 · 腾讯云</h4>
+                    <p>参与云分布式监控平台内核研发，面向海量云服务器指标采集告警系统。</p>
+                    <ul>
+                        <li>存储层重构优化，集群整体吞吐提升2.3倍</li>
+                        <li>告警规则引擎重构，显著降低业务告警误报率</li>
+                        <li>故障定位链路建设，平均MTTR缩短47%</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">2020 – 2023</div>
+                    <h4>全栈开发 · 字节跳动</h4>
+                    <p>飞书文档核心模块，负责多人协同编辑模块架构升级。</p>
+                    <ul>
+                        <li>引入CRDT协同模型，解决高并发多人编辑冲突难题</li>
+                        <li>前端与后端协同逻辑迭代，保障亿级用户场景稳定性</li>
+                        <li>性能压测、边界异常case修复、稳定性专项保障</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">2018 – 2020</div>
+                    <h4>计算机科学 · 浙江大学</h4>
+                    <p>主攻分布式系统与一致性算法研究，参与实验室科研项目。</p>
+                    <ul>
+                        <li>发表分布式方向学术论文2篇</li>
+                        <li>ACM‑ICPC亚洲区域赛金牌</li>
+                        <li>底层操作系统、网络协议、算法竞赛实践积累</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== AWARDS 荣誉成就 ========== -->
+        <section id="awards" class="reveal">
+            <div class="section-header">
+                <span class="tag">· 荣誉成果</span>
+                <h2>荣誉 & 成就</h2>
+                <div class="line"></div>
+            </div>
+            <div class="section-desc">竞赛、学术、开源与行业相关成果汇总。</div>
+            <div class="award‑grid">
+                <div class="award‑card">
+                    <h4>ACM‑ICPC 亚洲区域赛金牌</h4>
+                    <p>算法竞赛，复杂算法、数据结构训练，锻炼问题拆解与极限编码能力。</p>
+                </div>
+                <div class="award‑card">
+                    <h4>分布式方向学术论文 ×2</h4>
+                    <p>针对Raft变体优化、时序副本同步方向，收录校内学术会议。</p>
+                </div>
+                <div class="award‑card">
+                    <h4>开源项目累计2100+ GitHub Stars</h4>
+                    <p>多个开源项目被企业内部引用，社区外部贡献者合计超120人。</p>
+                </div>
+                <div class="award‑card">
+                    <h4>技术社区分享嘉宾</h4>
+                    <p>多次在线上技术沙龙分享分布式存储、实时协同主题内容。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT ========== -->
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <span class="tag">· 联络方式</span>
+                <h2>联系我</h2>
+                <div class="line"></div>
+            </div>
+            <div class="section-desc">欢迎架构咨询、开源协作、项目合作、技术分享邀约，我会尽量在1‑3个工作日内回复。</div>
+            <div class="contact-card">
+                <p class="contact‑note">💡提示：邮件是最稳定的联系渠道；如果是Bug反馈建议直接提交GitHub Issue。</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h4>📧 Email</h4>
+                        <a class="btn‑copy" data‑copy="hello@voidlabs.dev">hello@voidlabs.dev（点击复制）</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>🐙 GitHub</h4>
+                        <a href="#">github.com/void‑labs</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>🐦 Twitter / X</h4>
+                        <a href="#">@voidlabs_dev</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>💼 LinkedIn</h4>
+                        <a href="#">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="reveal">
+            <div>&copy; 2026 void·labs — 用技术探索无限可能</div>
+            <div class="social">
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Email</a>
+            </div>
+            <div class="footer-note">本页面原生HTML/CSS/JS实现，无第三方UI框架；粒子动画做性能降级，低性能设备自动适配。</div>
+        </footer>
+    </div>
+
+    <!-- back to top -->
+    <a id="backTop" href="#">↑</a>
+
+    <script src="./script.js"></script>
+</body>
+</html>
